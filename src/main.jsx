@@ -11,16 +11,16 @@ const styles = {
   global:(props) => ({
     body:{
       bg:mode("gray.100", "#000")(props),
-      color:mode("gray.800", "whiteAlpha.900")(props)
-    }
-  })
-}
+      color:mode("gray.800", "whiteAlpha.900")(props),
+    },
+  }),
+};
 
 const config = {
   initialColorMode: 'dark',
   useSystemColorMode: false,
 }
-const theme = extendTheme({ config,styles })
+const theme = extendTheme({ config,styles });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -29,5 +29,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <App />
       </ChakraProvider>
     </BrowserRouter>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

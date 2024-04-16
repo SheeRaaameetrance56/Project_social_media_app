@@ -1,5 +1,6 @@
-import { Button } from "@chakra-ui/react"
 import { Routes, Route } from "react-router-dom"
+import HomePage from "./pages/HomePage/HomePage"
+
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
+        <Route path="/auth" element={<AuthPage/>}/>
       </Routes>
     </>
   )
