@@ -1,4 +1,4 @@
-import { Box, Image, Button, Input, Text, Link, InputGroup, InputRightElement, VStack, Flex } from '@chakra-ui/react'
+import { Box, Image, Button, Input, Text, InputGroup, InputRightElement, VStack, Flex } from '@chakra-ui/react'
 import React, { useState } from 'react'
 
 function AuthForm() {
