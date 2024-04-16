@@ -1,26 +1,57 @@
 import { Box, Image, Button, Input, Text, InputGroup, InputRightElement, VStack, Flex } from '@chakra-ui/react'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function AuthForm() {
 
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false);
     const handleClick = () =>{
-        setShow(!show)
+        setShow(!show);
     } 
 
-    const [isLogin, setIsLogin] = useState(true)
+    const [isLogin, setIsLogin] = useState(true);
+
+    const [inputs, setInputs] = useState({
+        email:'',
+        password:'',
+        fullName:'',
+        confirmPassword:''
+    });
+
+    const handleAuthLog = () => {
+        if(!inputs.email || !inputs.password){
+            alert("Email and password required");
+            return
+        }
+        navigate("/");
+    }
+
+    const handleAuthSign = () => {
+        if(!inputs.email || !inputs.password || !inputs.fullName || !inputs.confirmPassword){
+            alert("All credentials must required");
+            return
+        }
+        navigate("/");
+    }
+
+    const navigate = useNavigate();
 
   return (
     <>
         <Box border={"1px solid gray"} borderRadius={4} padding={5}>
             <VStack>
                 <Image src='/logo.png' h={24} cursor={"pointer"} alt='Instagram'/>
-                <Input placeholder={"E-mail"} type='email'/>
+                <Input placeholder={"E-mail"} type='email'
+                    value={inputs.email}
+                    onChange={(e) => setInputs({...inputs,email:e.target.value})}
+                />
                 <InputGroup size='md'>
                     <Input
                         pr='4.5rem'
                         type={show ? 'text' : 'password'}
                         placeholder='Enter password'
+                        value={inputs.password}
+                        onChange={(e) => setInputs({...inputs,password:e.target.value})}
                     />
                     <InputRightElement width='4.5rem'>
                         <Button h='1.75rem' size='sm' onClick={handleClick}>
@@ -30,14 +61,20 @@ function AuthForm() {
                 </InputGroup>
 
                 {!isLogin ? (
-                    <Input placeholder={"Full Name"} type='text'/>
+                    <Input placeholder={"Full Name"} type='text'
+                        value={inputs.fullName}
+                        onChange={(e) => setInputs({...inputs,fullName:e.target.value})}
+                    />
                 ) : null}
 
                 {!isLogin ? (
-                    <Input placeholder={"Confirm password"} type='password'/>
+                    <Input placeholder={"Confirm password"} type='password'
+                        value={inputs.confirmPassword}
+                        onChange={(e) => setInputs({...inputs,confirmPassword:e.target.value})}
+                    />
                 ) : null}
 
-                <Button w={"full"} colorScheme='blue'>
+                <Button w={"full"} colorScheme='blue' onClick={isLogin? (handleAuthLog):(handleAuthSign)}>
                     {isLogin ? "Log in" : "Sign up"}
                 </Button>
                 
