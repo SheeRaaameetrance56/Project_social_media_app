@@ -1,8 +1,16 @@
+import { Box, Flex } from '@chakra-ui/react'
 import React from 'react'
 
-function PageLayout() {
+function PageLayout({children}) {
   return (
-    <div>PageLayout</div>
+    <Flex>
+        {/* sidebar on the left */}
+
+        {/* page content on right */}
+        <Box>
+            {children}
+        </Box>
+    </Flex>
   )
 }
 
