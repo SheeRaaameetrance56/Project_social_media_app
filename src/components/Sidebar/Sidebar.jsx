@@ -1,9 +1,41 @@
-import { Box, Flex, Link } from '@chakra-ui/react'
+import { Avatar, Box, Flex, Link, Tooltip } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
-import { InstagramLogo, InstagramMobileLogo} from '../../assets/Constants'
+import { CreatePostLogo, InstagramLogo, InstagramMobileLogo, NotificationsLogo, SearchLogo} from '../../assets/Constants'
+import { RxAvatar } from "react-icons/rx"
+import { AiFillHome } from "react-icons/ai";
 import React from 'react'
+import { color } from 'framer-motion';
 
 function Sidebar() {
+    const sidebarItems = [
+        {
+            icon: <AiFillHome size ={25}/>,
+            text: "Home",
+            link: "/"
+        },
+
+        {
+            icon: <SearchLogo/>,
+            text: "Search"
+        },
+
+        {
+            icon: <NotificationsLogo/>,
+            text: "Notifications"
+        },
+
+        {
+            icon: <CreatePostLogo/>,
+            text: "Create Post"
+        },
+
+        {
+            icon: <RxAvatar size={25} name='Minisa'/>,
+            text: "Profile",
+            link: "/asaprogrammer"
+        }
+
+    ]
   return (
     <Box 
         height={"100vh"}
@@ -23,6 +55,19 @@ function Sidebar() {
             <Link to={"/"} as={RouterLink} padding={2} display={{base:'block', md:'none'}} borderRadius={6} _hover={{bg:"whiteAlpha.200"}} w={10} cursor={'pointer'}> 
                 <InstagramMobileLogo/>
             </Link>
+
+            <Flex direction={"column"} gap={5} cursor={'pointer'}>
+                {sidebarItems.map((item,index) => (
+                        <Tooltip key={index} hasArrow label={item.text} placement='right' ml={1} openDelay={500} display={{base:'block', md:'none'}}>
+                            <Link display={'flex'} to={item.link || null} as={RouterLink} alignItems={'center'} gap={4} _hover={{bg:"whiteAlpha.400"}} borderRadius={6} p={2} w={{base:10, md:'full'}}>
+                                {item.icon}
+                                <Box display={{base:'none', md:'block'}}>{item.text}</Box>
+                            </Link>
+                        </Tooltip>
+                    )
+                )}
+            </Flex>
+
         </Flex>
 
     </Box>
