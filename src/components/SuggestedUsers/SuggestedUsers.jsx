@@ -1,8 +1,14 @@
 import React from 'react'
+import SuggestedUser from './SuggestedUser'
 
 function SuggestedUsers() {
   return (
-    <div>SuggestedUsers</div>
+    <>
+        <SuggestedUser/>
+        <SuggestedUser/>
+        <SuggestedUser/>
+        <SuggestedUser/>
+    </>
   )
 }
 
