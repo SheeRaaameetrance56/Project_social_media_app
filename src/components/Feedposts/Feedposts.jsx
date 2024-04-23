@@ -4,16 +4,16 @@ import FeedPost from './FeedPost'
 
 function Feedposts() {
 
-    const [isLoding, setIsLoding] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
         setTimeout(() => {
-            setIsLoding(false)
+            setIsLoading(false)
         }, 2000)
     }, [])
 
   return (
     <Container maxW={"container.sm"} py={10} px={2}>
-        {isLoding && [0,1,2,3].map((_,idx) => (
+        {isLoading && [0,1,2,3].map((_,idx) => (
             <VStack key={idx} gap={4} alignItems={"flex-start"} mb={10}>
                 <Flex gap={2}>
                     <SkeletonCircle size='10' />
@@ -27,7 +27,7 @@ function Feedposts() {
                 </Skeleton>
             </VStack>
         ))}
-        {!isLoding && (
+        {!isLoading && (
             <>
                 <FeedPost
                     username = "Sheeran"
@@ -37,7 +37,7 @@ function Feedposts() {
                     username = "Tylor"
                     img = "/profile_img2.jpg"
                     avatar = "/profile_img2.jpg"/>
-                </>
+            </>
         )}
        
     </Container>
