@@ -7,7 +7,7 @@ function FeedPost() {
   return (
     <>
         <PostHeader/>
-            <Box>
+            <Box borderRadius={6} overflow={"hidden"}>
                 <Image src = "/profile_img.jpg" alt = "profile pic"/>
             </Box>
         <PostFooter/>

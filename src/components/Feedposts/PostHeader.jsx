@@ -9,8 +9,8 @@ function PostHeader() {
             <Avatar src="/profile_img.jpg" alt="profile pic" size={"sm"}/>
             <Flex fontSize={12} fontWeight={"bold"} gap={2}>
                 Shehan
-                <Box color={"gray.500"}>
-                    : 1W
+                <Box color={"gray.500"} mx={1}>
+                    • 1W
                 </Box>
             </Flex>
         </Flex>
