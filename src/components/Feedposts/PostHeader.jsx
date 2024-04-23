@@ -2,13 +2,13 @@ import { Avatar, Box, Flex, Text } from '@chakra-ui/react'
 import { color } from 'framer-motion'
 import React from 'react'
 
-function PostHeader() {
+function PostHeader( {username, avatar} ) {
   return (
     <Flex justifyContent={"space-between"} alignItems={"center"} w={"full"} my={2}>
         <Flex alignItems={"center"} gap={2} >
-            <Avatar src="/profile_img.jpg" alt="profile pic" size={"sm"}/>
+            <Avatar src={avatar} alt="profile pic" size={"sm"}/>
             <Flex fontSize={12} fontWeight={"bold"} gap={2}>
-                Shehan
+                {username}
                 <Box color={"gray.500"} mx={1}>
                     • 1W
                 </Box>
