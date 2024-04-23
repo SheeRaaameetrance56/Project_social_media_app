@@ -30,13 +30,13 @@ function Feedposts() {
         {!isLoding && (
             <>
                 <FeedPost
-                username = "Sheeran"
-                img = "/profile_img.jpg"
-                avatar = "/profile_img.jpg" />
+                    username = "Sheeran"
+                    img = "/profile_img.jpg"
+                    avatar = "/profile_img.jpg" />
                 <FeedPost
-                username = "Tylor"
-                img = "/profile_img2.jpg"
-                avatar = "/profile_img2.jpg"/>
+                    username = "Tylor"
+                    img = "/profile_img2.jpg"
+                    avatar = "/profile_img2.jpg"/>
                 </>
         )}
        
