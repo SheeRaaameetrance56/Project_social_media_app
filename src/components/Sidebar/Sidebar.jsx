@@ -20,7 +20,7 @@ function Sidebar() {
             text: "Search"
         },
 
-        {
+        { 
             icon: <NotificationsLogo/>,
             text: "Notifications"
         },
