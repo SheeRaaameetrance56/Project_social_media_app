@@ -1,5 +1,6 @@
 import { Container, Flex, Text } from '@chakra-ui/react'
 import React from 'react'
+import ProfileHeader from '../../components/ProfileComponents/ProfileHeader/ProfileHeader'
 
 function ProfilePage() {
   return (
