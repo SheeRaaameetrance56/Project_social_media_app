@@ -1,8 +1,16 @@
+import { Container, Flex, Text } from '@chakra-ui/react'
 import React from 'react'
 
 function ProfilePage() {
   return (
-    <div>ProfilePage</div>
+    <Container maxW={Container.lg} py={5}>
+        <Flex py={10} px={4} pl={{base:4,md:10}} w={"full"} mx={"auto"} flexDirection={"column"}>
+            <ProfileHeader/>
+        </Flex>
+        <Flex>
+            Profile post
+        </Flex>
+    </Container>
   )
 }
 
