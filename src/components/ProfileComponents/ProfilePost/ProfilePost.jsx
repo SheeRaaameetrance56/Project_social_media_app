@@ -4,7 +4,7 @@ import {AiFillHeart} from 'react-icons/ai'
 import {FaComment} from 'react-icons/fa'
 import {MdDelete} from 'react-icons/md'
 import Comment from '../../Comment/Comment'
-import ModalFooter from '../../ProfileComponents/ModalFooter/ModelFooter'
+import ModalPostFooter from '../ModalPostFooter/ModalPostFooter'
 
 
 function ProfilePost({img}) {
@@ -111,7 +111,7 @@ function ProfilePost({img}) {
                   />
                 </VStack>
                 <Divider my={4} bg={"gray.800"}/>
-                <ModalFooter/>
+                <ModalPostFooter/>
               </Flex>
             </Flex>
           </ModalBody>
