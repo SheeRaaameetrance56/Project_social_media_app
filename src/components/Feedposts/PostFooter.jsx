@@ -2,7 +2,7 @@ import { Box, Button, Flex, Input, InputGroup, InputRightElement, Text } from '@
 import React, { useState } from 'react'
 import { NotificationsLogo, UnlikeLogo, CommentLogo } from '../../assets/Constants'
 
-function PostFooter() {
+function PostFooter({userName, isProfilePage}) {
     const [liked, setLiked] = useState(true)
     const [likes, setLikes] = useState(0)
 
@@ -18,7 +18,7 @@ function PostFooter() {
     }
 
   return (
-    <Box mb={10}>
+    <Box mb={10} marginTop={"auto"}>
     <Flex w={"full"} gap={4} alignItems={"center"} pt={0} mb={2} mt={4} justifyContent={'space-between'}>
         <Box onClick={likeHandle} cursor={'pointer'} fontSize={18}>
             { liked ? (<NotificationsLogo/>) : (<UnlikeLogo/>) }
@@ -42,18 +42,22 @@ function PostFooter() {
         Caption
     </Text>
 
-    <Text fontSize={"sm"} color={"gray.500"} cursor={'pointer'}>
-        View all comments
-    </Text>
+    {!isProfilePage && (
+        <>
+        <Text fontSize={"sm"} color={"gray.500"} cursor={'pointer'}>
+            View all comments
+        </Text>
 
-    <Flex alignItems={"center"} gap={2} w={"full"} justifyContent={"space-between"} my={2}>
-        <InputGroup>
-            <Input varient="flushed" placeholder={"Add a comment...."} fontSize={14}/>
-            <InputRightElement>
-                <Button fontSize={14} color={"blue.500"} fontWeight={600} cursor={'pointer'} _hover={{color:"white"}} bg={"transparent"} mr={3}>Post</Button>
-            </InputRightElement>
-        </InputGroup>
-    </Flex>
+        <Flex alignItems={"center"} gap={2} w={"full"} justifyContent={"space-between"} my={2}>
+            <InputGroup>
+                <Input varient="flushed" placeholder={"Add a comment...."} fontSize={14}/>
+                <InputRightElement>
+                    <Button fontSize={14} color={"blue.500"} fontWeight={600} cursor={'pointer'} _hover={{color:"white"}} bg={"transparent"} mr={3}>Post</Button>
+                </InputRightElement>
+            </InputGroup>
+        </Flex>
+        </>
+    )}
 
     </Box>
   )
