@@ -20,7 +20,7 @@ function ProfilePost({img}) {
         <Image src={img} alt='Profile post'/>
       </GridItem>
 
-      <Modal onClose={onClose} size={{base:"3xl", md:"5xl"}} isOpen={isOpen} isCentered={true}>
+      <Modal onClose={onClose} size={{base:"3xl", md:"5xl"}} isOpen={isOpen} isCentered={true} >
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
@@ -42,9 +42,48 @@ function ProfilePost({img}) {
                     <MdDelete size={20} cursor="pointer"/>
                   </Box>
                 </Flex>
-                <Divider my={4} bg={"whiteAlpha.600"}/>
-                <VStack w={"full"} alignItems={"start"} maxH={"350px"} overflow={"hidden"}>
 
+                <Divider my={2} bg={"whiteAlpha.600"}/>
+                <Text fontSize={14} fontWeight={"bold"} my={4}>Comments</Text>
+
+                <VStack w={"full"} alignItems={"start"} maxH={"350px"} overflowY={"auto"}>
+
+                  <Comment 
+                    createdAt = {"12h Ago"}
+                    userName = {"Niasa"}
+                    profilePic = {"#"}
+                    text = {"Nice pic"}
+                  />
+                  <Comment 
+                    createdAt = {"12h Ago"}
+                    userName = {"Niasa"}
+                    profilePic = {"#"}
+                    text = {"Nice pic"}
+                  />
+                  <Comment 
+                    createdAt = {"12h Ago"}
+                    userName = {"Niasa"}
+                    profilePic = {"#"}
+                    text = {"Nice pic ed aslkd askjdhajksd jsgj daksjgd hgdg dhsadhasgdhgas dyasdasfd ahsdayfgafsd"}
+                  />
+                  <Comment 
+                    createdAt = {"12h Ago"}
+                    userName = {"Niasa"}
+                    profilePic = {"#"}
+                    text = {"Nice pic"}
+                  />
+                  <Comment 
+                    createdAt = {"12h Ago"}
+                    userName = {"Niasa"}
+                    profilePic = {"#"}
+                    text = {"Nice pic"}
+                  />
+                  <Comment 
+                    createdAt = {"12h Ago"}
+                    userName = {"Niasa"}
+                    profilePic = {"#"}
+                    text = {"Nice pic"}
+                  />
                   <Comment 
                     createdAt = {"12h Ago"}
                     userName = {"Niasa"}
