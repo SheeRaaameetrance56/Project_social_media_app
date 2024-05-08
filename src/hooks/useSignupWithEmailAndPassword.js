@@ -2,6 +2,7 @@ import React from 'react'
 import {auth, firestore} from '../firebase/firebase'
 import { doc, setDoc } from 'firebase/firestore'
 import {useCreateUserWithEmailAndPassword} from 'react-firebase-hooks/auth'
+import useShowToast from './useShowToast';
 
 function useSignupWithEmailAndPassword() {
     const [
@@ -11,13 +12,17 @@ function useSignupWithEmailAndPassword() {
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
 
+      const showToast = useShowToast();
+
       const signup = async (inputs) => {
         if (!inputs.email || !inputs.password || !inputs.fullName || !inputs.confirmPassword) {
             console.log("All fields are required");
+            showToast("Empty fields", "Please enter your details on all fealds", "error")
             return ;
         }
         else if(inputs.password !== inputs.confirmPassword){
             console.log("Your password not match with confirmation");
+            showToast("Password confirm error", "Your password not match with confirmation", "error")
             return ;
         }
     
@@ -26,6 +31,7 @@ function useSignupWithEmailAndPassword() {
     
             if (!newUser) {
                 console.log("User creation failed");
+                showToast("Error", "Failed to create new user", "error")
                 return ;
             }
     
@@ -47,6 +53,7 @@ function useSignupWithEmailAndPassword() {
 
         } catch (error) {
             console.error("Signup error:", error.message);
+            showToast("Signup error:", error.message, "error")
             return ;
         }
     };
