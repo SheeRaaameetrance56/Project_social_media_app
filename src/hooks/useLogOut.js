@@ -10,6 +10,7 @@ function useLogOut() {
         try{
             await signOut();
             localStorage.removeItem("user-info");
+            console.log("loggedout");
         }
         catch(error){
             showToast("Error", error.message, "error");

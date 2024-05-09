@@ -74,9 +74,9 @@ function Sidebar() {
             </Flex>
             {/* Log out */}
             <Tooltip hasArrow label={"Log out"} placement='right' ml={1} openDelay={500} display={{base:'block', md:'none'}}>
-                <Flex onClick={handleLogout} alignItems={'center'} gap={4} _hover={{bg:"whiteAlpha.400"}} borderRadius={6} p={2} w={{base:10, md:'full'}} mt={'auto'} justifyContent={{base:'center', md:'flex-start'}}>
+                <Flex onClick={handleLogout} alignItems={'center'} gap={4} _hover={{bg:"whiteAlpha.400"}} borderRadius={6} p={2} w={{base:10, md:'full'}} mt={'auto'} justifyContent={{base:'center', md:'flex-start'}} cursor={'pointer'}>
                     <BiLogOut size={25}/>
-                    <Button display={{base:'none', md:'block'}} isLoading={isLoggingOut} variant={"ghost"} _hover={{bg:"transparent"}}>{"Log out"}</Button>
+                    <Button display={{base:'none', md:'block'}} isLoading={isLoggingOut} variant={"ghost"} _hover={{bg:"transparent"}}>Log out</Button>
                 </Flex>
             </Tooltip>
         </Flex>
