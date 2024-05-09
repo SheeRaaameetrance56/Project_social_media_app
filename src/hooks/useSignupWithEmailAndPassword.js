@@ -29,7 +29,7 @@ function useSignupWithEmailAndPassword() {
         try {
             const newUser = await createUserWithEmailAndPassword(inputs.email, inputs.password);
     
-            if (!newUser) {
+            if (!newUser && error) {
                 console.log("User creation failed");
                 showToast("Error", "Failed to create new user", "error")
                 return ;
