@@ -31,7 +31,7 @@ function useSignupWithEmailAndPassword() {
     
             if (!newUser && error) {
                 console.log("User creation failed");
-                showToast("Error", "Failed to create new user", "error")
+                showToast("Error", error.message , "error")
                 return ;
             }
     
