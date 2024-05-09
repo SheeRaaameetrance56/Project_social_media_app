@@ -1,4 +1,4 @@
-import { Avatar, Box, Flex, Link, Tooltip } from '@chakra-ui/react'
+import { Avatar, Box, Flex, Link, Tooltip, Button } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
 import { CreatePostLogo, InstagramLogo, InstagramMobileLogo, NotificationsLogo, SearchLogo} from '../../assets/Constants'
 import { RxAvatar } from "react-icons/rx"
@@ -6,8 +6,12 @@ import { AiFillHome } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
 import React from 'react'
 import { color } from 'framer-motion';
+import useLogOut from '../../hooks/useLogOut';
 
 function Sidebar() {
+
+    const {handleLogout, isLoggingOut, error} = useLogOut();
+
     const sidebarItems = [
         {
             icon: <AiFillHome size ={25}/>,
@@ -68,11 +72,12 @@ function Sidebar() {
                     )
                 )}
             </Flex>
+            {/* Log out */}
             <Tooltip hasArrow label={"Log out"} placement='right' ml={1} openDelay={500} display={{base:'block', md:'none'}}>
-                <Link display={'flex'} to={"/auth"} as={RouterLink} alignItems={'center'} gap={4} _hover={{bg:"whiteAlpha.400"}} borderRadius={6} p={2} w={{base:10, md:'full'}} mt={'auto'} justifyContent={{base:'center', md:'flex-start'}}>
+                <Flex onClick={handleLogout} alignItems={'center'} gap={4} _hover={{bg:"whiteAlpha.400"}} borderRadius={6} p={2} w={{base:10, md:'full'}} mt={'auto'} justifyContent={{base:'center', md:'flex-start'}}>
                     <BiLogOut size={25}/>
-                    <Box display={{base:'none', md:'block'}}>{"Log out"}</Box>
-                </Link>
+                    <Button display={{base:'none', md:'block'}} isLoading={isLoggingOut} variant={"ghost"} _hover={{bg:"transparent"}}>{"Log out"}</Button>
+                </Flex>
             </Tooltip>
         </Flex>
 
