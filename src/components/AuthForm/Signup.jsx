@@ -49,12 +49,12 @@ function Signup() {
             onChange={(e) => setInputs({...inputs,confirmPassword:e.target.value})}
         />
 
-        {error && (
+        {/* {error && (
             <Alert status='error' fontSize={13} borderRadius={4} w={"full"}>
                 <AlertIcon fontSize={12}/>
                 {error.message}
             </Alert>
-        )}
+        )} */}
 
         <Button w={"full"} colorScheme='blue' onClick={() => signup(inputs)} isLoading={loading}>
             Signup
